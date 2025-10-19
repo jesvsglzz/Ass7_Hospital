@@ -11,7 +11,7 @@ class DoctorTree:
         self.root = None
 
     def insert(self, parent_name, child_name, side):
-        # Helper recursive function to find parent and insert the child
+        
         def _insert_recursive(node):
             if node is None:
                 return False
