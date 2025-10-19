@@ -1,0 +1,15 @@
+A tree is a good choice for showing the doctor's structure because it can represent how doctors report to 
+each other. Each doctor can have people working under them, just like branches in a tree. This makes it 
+easy to understand who manages whom and how the hospital’s management system is organized.
+
+Each way of going through the tree (preorder, inorder, and postorder) is useful for different situations. 
+Preorder traversal visits the main doctor first and then the others, which works well when information or 
+decisions need to go from the top down. Inorder traversal goes from left to right and is useful when we want 
+to see the doctors in an organized or sorted order. Postorder traversal visits the lower levels first, which 
+helps when we need to review or remove people starting from the bottom of the structure.
+
+Heaps are very useful for emergency situations because they help pick the most urgent patient first. In a 
+hospital, doctors and nurses need to treat the most serious cases as soon as possible. A min-heap does this 
+by keeping the patient with the highest priority (lowest urgency number) at the top. When a new patient 
+arrives or one is treated, the heap automatically adjusts the order. This system helps the emergency room 
+stay organized and ensures that the most critical patients always get attention first.
