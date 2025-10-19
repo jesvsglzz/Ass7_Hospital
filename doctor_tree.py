@@ -11,8 +11,11 @@ class DoctorTree:
         self.root = None
 
     def insert(self, parent_name, child_name, side):
-        
-        def _insert_recursive(node):
+        if self.root is None:
+            print("Error: Tree is empty. Please set a root first.")
+            return
+
+        def find_and_insert(node):
             if node is None:
                 return False
             if node.name == parent_name:
@@ -32,16 +35,13 @@ class DoctorTree:
                         print(f"Error: {parent_name} already has a right child.")
                         return False
                 else:
-                    print("Error: Invalid side value. Use 'left' or 'right'.")
+                    print("Error: Side must be 'left' or 'right'.")
                     return False
-            return _insert_recursive(node.left) or _insert_recursive(node.right)
+            # search left and right subtrees
+            return find_and_insert(node.left) or find_and_insert(node.right)
 
-        if self.root is None:
-            print("Error: Tree is empty. Please set a root before inserting.")
-            return
-        inserted = _insert_recursive(self.root)
-        if not inserted:
-            print(f"Error: Parent '{parent_name}' not found in the tree.")
+        if not find_and_insert(self.root):
+            print(f"Error: Parent '{parent_name}' not found.")
 
     # Preorder traversal:
     def preorder(self, node):
