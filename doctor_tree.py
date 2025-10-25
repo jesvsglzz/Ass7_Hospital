@@ -81,8 +81,28 @@ tree.insert("Dr. Gonzalez", "Dr. Campelo", "left")
 tree.insert("Dr. Campelo", "Dr. Iglesias", "right")
 tree.insert("Dr. Campelo", "Dr. Benito", "left")
 
-print("Preorder:", tree.preorder(tree.root))
-print("Inorder:", tree.inorder(tree.root))
-print("Postorder:", tree.postorder(tree.root))
+# Traversal tests
+assert tree.preorder(tree.root) == [
+    "Dr. Gonzalez", "Dr. Campelo", "Dr. Benito", "Dr. Iglesias", "Dr. Alonso"
+]
+assert tree.inorder(tree.root) == [
+    "Dr. Benito", "Dr. Campelo", "Dr. Iglesias", "Dr. Gonzalez", "Dr. Alonso"
+]
+assert tree.postorder(tree.root) == [
+    "Dr. Benito", "Dr. Iglesias", "Dr. Campelo", "Dr. Alonso", "Dr. Gonzalez"
+]
 
+# Edge case 1: Empty tree
+empty_tree = DoctorTree()
+assert empty_tree.preorder(empty_tree.root) == []
+assert empty_tree.inorder(empty_tree.root) == []
+assert empty_tree.postorder(empty_tree.root) == []
 
+# Edge case 2: Single node tree
+single_tree = DoctorTree()
+single_tree.root = DoctorNode("Dr. Vazquez")
+assert single_tree.preorder(single_tree.root) == ["Dr. Vazquez"]
+assert single_tree.inorder(single_tree.root) == ["Dr. Vazquez"]
+assert single_tree.postorder(single_tree.root) == ["Dr. Vazquez"]
+
+print("All tests passed successfully!")
